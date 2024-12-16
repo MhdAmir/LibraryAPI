@@ -5,10 +5,13 @@ namespace LibraryAPI.Data
     public class LibraryDBContext(DbContextOptions<LibraryDBContext> options) : DbContext(options)
     {
         public DbSet<Library> LibraryList => Set<Library>();
+        public DbSet<User> Users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
 
             modelBuilder.Entity<Library>().HasData(
                 new Library
